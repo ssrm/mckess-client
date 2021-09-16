@@ -1,0 +1,23 @@
+<div>
+  <input type="text" [(ngModel)]="guessCharacter" maxlength="1" (change)="guess()"/>
+</div>
+
+<div *ngIf="response?.status === guessStatus.PROGRESS">
+  <span>{{response.guessedString}}</span>
+  <span>{{response.misses}}</span>
+</div>
+
+<div *ngIf="response?.status === guessStatus.SUCCESS">
+  <span>You won the the game</span>
+  <span>{{response.guessedString}}</span>
+</div>
+
+
+<div *ngIf="response?.status === guessStatus.FAIL">
+  <span>You lost the the game</span>
+  <span>{{response.guessedString}}</span>
+</div>
+
+
+<button (click)="start()" >Start</button>
+<button (click)="abandon()" >Abandon</button>
